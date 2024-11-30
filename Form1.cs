@@ -1,4 +1,7 @@
-﻿namespace Finding
+﻿using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace Finding
 {
     public partial class Form1 : Form
     {
@@ -29,13 +32,7 @@
 
         private void Form1_Click(object sender, EventArgs e)
         {
-            Random rn = new Random();
 
-            int r = rn.Next(0, 255);
-            int g = rn.Next(0, 255);
-            int b = rn.Next(0, 255);
-            this.BackColor = Color.FromArgb(r, g, b);
-            this.Text = r.ToString() + "," + g.ToString() + "," + b.ToString();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -50,25 +47,121 @@
 
         private void btnCircleArea_Click(object sender, EventArgs e)
         {
-            //input
-            double Radius = 0;
-            //Radius = Convert.ToDouble(txtRadius.Text);
-            if(double.TryParse(txtRadius.Text, out Radius)==false)
+            if (double.TryParse(txtRadius.Text, out double radius))
             {
-                MessageBox.Show("กรอกข้อมูลไม่ถูกต้อง", "!!!Error!!!");
+                double circleArea = CalculateCircleArea(radius); // เรียก Method Return
+                DisplayLabelResult(lblResult, circleArea);       // แสดงผลผ่าน Method Void
                 txtRadius.Focus();
-                return;
+                txtRadius.SelectAll();
             }
-                
-            //process
-            double CircleArea = Math.PI*Math.Pow(Radius, 2);
-            //Math.PI  ให้ค่า PI
-            //Math.Pow(x,y) x ยกกำลัง  y
-            //output
-            lblResult.Text = CircleArea.ToString("0.00");
+            else
+            {
+                DisplayMessage("กรอกข้อมูลไม่ถูกต้อง", "!!!Error!!!");
+                txtRadius.Focus();
+            }
+
+
+        }
+
+        private void btnTriangleArea_Click(object sender, EventArgs e)
+        {
+            if (double.TryParse(txtHeight.Text, out double height) &&
+                double.TryParse(txtWidth.Text, out double width))
+            {
+                double triangleArea = CalculateTriangleArea(height, width); // เรียก Method Return
+                DisplayLabelResult(label7, triangleArea);                  // แสดงผลผ่าน Method Void
+                txtHeight.Focus();
+                txtHeight.SelectAll();
+            }
+            else
+            {
+                DisplayMessage("กรอกข้อมูลไม่ถูกต้อง", "!!!Error!!!");
+                txtHeight.Focus();
+            }
+        }
+
+        private void btnHexagonArea_Click(object sender, EventArgs e)
+        {
+            if (double.TryParse(txtPolygonWidth.Text, out double polygonWidth))
+            {
+                double hexagonArea = CalculateHexagonArea(polygonWidth); // เรียก Method Return
+                DisplayLabelResult(label8, hexagonArea);                // แสดงผลผ่าน Method Void
+                txtPolygonWidth.Focus();
+                txtPolygonWidth.SelectAll();
+            }
+            else
+            {
+                DisplayMessage("กรอกข้อมูลไม่ถูกต้อง", "!!!Error!!!");
+                txtPolygonWidth.Focus();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            double.TryParse(lblResult.Text, out double circleArea);
+            double.TryParse(label7.Text, out double triangleArea);
+            double.TryParse(label8.Text, out double hexagonArea);
+
+            double totalArea = circleArea + triangleArea + hexagonArea;
+
+            DisplayLabelResult(label11, totalArea); // แสดงผลผ่าน Method Void
+
+
+
+        }
+
+
+
+
+
+        private double CalculateCircleArea(double radius)
+        {
+            return Math.PI * Math.Pow(radius, 2);
+        }
+
+        private double CalculateTriangleArea(double height, double width)
+        {
+            return 0.5 * height * width;
+        }
+
+        private double CalculateHexagonArea(double polygonWidth)
+        {
+            return (3 * Math.Sqrt(3) / 2) * Math.Pow(polygonWidth, 2);
+        }
+
+        private void DisplayMessage(string message, string title)
+        {
+            MessageBox.Show(message, title);
+        }
+
+
+
+        private void DisplayLabelResult(Label label, double value)
+        {
+            label.Text = value.ToString("0.00");
+        }
+
+        private void clearForm()
+        {
+
+
+            txtRadius.Text = "0";
+            txtHeight.Text = "0";
+            txtWidth.Text = "0";
+            txtPolygonWidth.Text = "0";
+            lblResult.Text = "";
+            label7.Text = "";
+            label8.Text = "";
+            label11.Text = "";
             txtRadius.Focus();
-            txtRadius.SelectAll();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            clearForm();
         }
     }
+
 
 }

@@ -49,6 +49,13 @@
             groupBox4 = new GroupBox();
             label6 = new Label();
             button1 = new Button();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            button2 = new Button();
+            button3 = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox4.SuspendLayout();
@@ -59,7 +66,7 @@
             btnCircleArea.Location = new Point(436, 53);
             btnCircleArea.Name = "btnCircleArea";
             btnCircleArea.Size = new Size(114, 42);
-            btnCircleArea.TabIndex = 0;
+            btnCircleArea.TabIndex = 2;
             btnCircleArea.Text = "คำนวณ";
             btnCircleArea.UseVisualStyleBackColor = true;
             btnCircleArea.Click += btnCircleArea_Click;
@@ -69,25 +76,27 @@
             btnTriangleArea.Location = new Point(436, 55);
             btnTriangleArea.Name = "btnTriangleArea";
             btnTriangleArea.Size = new Size(114, 38);
-            btnTriangleArea.TabIndex = 1;
+            btnTriangleArea.TabIndex = 5;
             btnTriangleArea.Text = "คำนวณ";
             btnTriangleArea.UseVisualStyleBackColor = true;
+            btnTriangleArea.Click += btnTriangleArea_Click;
             // 
             // btnHexagonArea
             // 
             btnHexagonArea.Location = new Point(436, 54);
             btnHexagonArea.Name = "btnHexagonArea";
             btnHexagonArea.Size = new Size(114, 38);
-            btnHexagonArea.TabIndex = 2;
+            btnHexagonArea.TabIndex = 7;
             btnHexagonArea.Text = "คำนวณ";
             btnHexagonArea.UseVisualStyleBackColor = true;
+            btnHexagonArea.Click += btnHexagonArea_Click;
             // 
             // txtRadius
             // 
             txtRadius.Location = new Point(164, 61);
             txtRadius.Name = "txtRadius";
             txtRadius.Size = new Size(198, 27);
-            txtRadius.TabIndex = 3;
+            txtRadius.TabIndex = 1;
             txtRadius.Text = "1";
             txtRadius.TextAlign = HorizontalAlignment.Right;
             // 
@@ -96,7 +105,7 @@
             txtHeight.Location = new Point(164, 38);
             txtHeight.Name = "txtHeight";
             txtHeight.Size = new Size(198, 27);
-            txtHeight.TabIndex = 4;
+            txtHeight.TabIndex = 3;
             txtHeight.Text = "1";
             txtHeight.TextAlign = HorizontalAlignment.Right;
             txtHeight.TextChanged += textBox2_TextChanged;
@@ -106,7 +115,7 @@
             txtWidth.Location = new Point(164, 83);
             txtWidth.Name = "txtWidth";
             txtWidth.Size = new Size(198, 27);
-            txtWidth.TabIndex = 5;
+            txtWidth.TabIndex = 4;
             txtWidth.Text = "1";
             txtWidth.TextAlign = HorizontalAlignment.Right;
             // 
@@ -124,7 +133,7 @@
             txtPolygonWidth.Location = new Point(164, 60);
             txtPolygonWidth.Name = "txtPolygonWidth";
             txtPolygonWidth.Size = new Size(198, 27);
-            txtPolygonWidth.TabIndex = 7;
+            txtPolygonWidth.TabIndex = 6;
             txtPolygonWidth.Text = "1";
             txtPolygonWidth.TextAlign = HorizontalAlignment.Right;
             // 
@@ -133,9 +142,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(40, 45);
             label2.Name = "label2";
-            label2.Size = new Size(124, 20);
+            label2.Size = new Size(108, 20);
             label2.TabIndex = 8;
-            label2.Text = "ค่าความยาวของฐาน";
+            label2.Text = "ความยาวของฐาน";
             // 
             // label3
             // 
@@ -166,9 +175,10 @@
             // lblResult
             // 
             lblResult.BackColor = Color.Aqua;
-            lblResult.Location = new Point(663, 32);
+            lblResult.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblResult.Location = new Point(663, 29);
             lblResult.Name = "lblResult";
-            lblResult.Size = new Size(295, 132);
+            lblResult.Size = new Size(273, 78);
             lblResult.TabIndex = 14;
             lblResult.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -194,7 +204,7 @@
             groupBox2.Controls.Add(txtWidth);
             groupBox2.Controls.Add(label2);
             groupBox2.Controls.Add(label3);
-            groupBox2.Location = new Point(12, 164);
+            groupBox2.Location = new Point(12, 149);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(567, 125);
             groupBox2.TabIndex = 18;
@@ -216,7 +226,7 @@
             groupBox4.Controls.Add(txtPolygonWidth);
             groupBox4.Controls.Add(label4);
             groupBox4.Controls.Add(btnHexagonArea);
-            groupBox4.Location = new Point(12, 313);
+            groupBox4.Location = new Point(12, 290);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(567, 125);
             groupBox4.TabIndex = 19;
@@ -226,7 +236,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(663, 12);
+            label6.Location = new Point(663, 9);
             label6.Name = "label6";
             label6.Size = new Size(115, 20);
             label6.TabIndex = 20;
@@ -235,20 +245,95 @@
             // button1
             // 
             button1.BackColor = Color.Gold;
-            button1.Location = new Point(819, 396);
+            button1.Location = new Point(99, 431);
             button1.Name = "button1";
-            button1.Size = new Size(139, 42);
+            button1.Size = new Size(163, 44);
             button1.TabIndex = 21;
             button1.Text = "ปิดโปรแกรม";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
+            // 
+            // label7
+            // 
+            label7.BackColor = Color.Aqua;
+            label7.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(663, 181);
+            label7.Name = "label7";
+            label7.Size = new Size(273, 78);
+            label7.TabIndex = 22;
+            label7.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            label8.BackColor = Color.Aqua;
+            label8.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(663, 321);
+            label8.Name = "label8";
+            label8.Size = new Size(273, 78);
+            label8.TabIndex = 23;
+            label8.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(663, 149);
+            label9.Name = "label9";
+            label9.Size = new Size(115, 20);
+            label9.TabIndex = 24;
+            label9.Text = "พื้นที่(ตารางหน่วย)";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(663, 290);
+            label10.Name = "label10";
+            label10.Size = new Size(115, 20);
+            label10.TabIndex = 25;
+            label10.Text = "พื้นที่(ตารางหน่วย)";
+            // 
+            // label11
+            // 
+            label11.BackColor = Color.Aqua;
+            label11.Location = new Point(713, 416);
+            label11.Name = "label11";
+            label11.Size = new Size(223, 57);
+            label11.TabIndex = 26;
+            label11.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(578, 430);
+            button2.Name = "button2";
+            button2.Size = new Size(102, 43);
+            button2.TabIndex = 8;
+            button2.Text = "ผลรวม";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.Gold;
+            button3.Location = new Point(319, 430);
+            button3.Name = "button3";
+            button3.Size = new Size(163, 44);
+            button3.TabIndex = 9;
+            button3.Text = "เริ่มใหม่";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Ivory;
-            ClientSize = new Size(1015, 464);
+            ClientSize = new Size(1015, 491);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(label11);
+            Controls.Add(label10);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(label7);
             Controls.Add(button1);
             Controls.Add(label6);
             Controls.Add(groupBox4);
@@ -257,7 +342,7 @@
             Controls.Add(lblResult);
             Controls.Add(label5);
             Name = "Form1";
-            Text = "Formคำนวณหาพื้นที่รูปเลขาคณิต";
+            Text = "โปรแกรมคำนวณพื้นที่รูปเรขาคณิต";
             FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             Click += Form1_Click;
@@ -293,5 +378,12 @@
         private GroupBox groupBox4;
         private Label label6;
         private Button button1;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private Label label10;
+        private Label label11;
+        private Button button2;
+        private Button button3;
     }
 }
